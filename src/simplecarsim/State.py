@@ -52,14 +52,14 @@ class State( object ):
         V_m_per_s = self.get_V_m_per_s()
 
         # update positions -- this uses the velocities from the current time step (remember delta_x is approximate vx * delta_t)
-        self.x_m += self.vx_m_per_s * Delta_t_s
-        self.y_m += self.vy_m_per_s * Delta_t_s
-        self.psi_rad += self.psi_dot_rad_per_s * Delta_t_s
+        self.x_m += 
+        self.y_m += 
+        self.psi_rad += 
 
         # update velocities
-        self.vx_m_per_s += x_ddot_m_per_s2 * Delta_t_s
-        self.vy_m_per_s += y_ddot_m_per_s2 * Delta_t_s
-        self.psi_dot_rad_per_s += psi_ddot_rad_per_s2 * Delta_t_s
+        self.vx_m_per_s += 
+        self.vy_m_per_s += 
+        self.psi_dot_rad_per_s += 
 
     def get_V_m_per_s(self):
         '''

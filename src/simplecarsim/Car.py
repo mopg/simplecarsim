@@ -54,31 +54,30 @@ class Car( object ):
         distance_CG_to_rear_axle_m = self.l_wheelbase_m - distance_CG_to_front_axle_m
 
         # compute lateral side slip ratios. Equation 6 in document.
-        s_y_front = -(V_m_per_s * sin(beta_rad - delta_rad) + distance_CG_to_front_axle_m * self.current_state.psi_dot_rad_per_s * cos(delta_rad)) / \
-            (V_m_per_s * cos(beta_rad - delta_rad) + distance_CG_to_front_axle_m * self.current_state.psi_dot_rad_per_s * sin(delta_rad))
-        s_y_rear = -(V_m_per_s * sin(beta_rad) - distance_CG_to_rear_axle_m * self.current_state.psi_dot_rad_per_s) / (V_m_per_s * cos(beta_rad))
+        s_y_front = 
+        s_y_rear = 
 
         # dumb four wheel drive -- we assume the front and rear axle are torqued the same amount, which is not true in most 4WD cars.
         s_x_front = s_x
         s_x_rear = s_x
 
-        # compute the tire forces
-        Fx_tire_front, Fy_tire_front = self.tire_model.compute_tire_forces(s_x = s_x_front, s_y = s_y_front, F_z = Fz_tire_front)
-        Fx_tire_rear, Fy_tire_rear = self.tire_model.compute_tire_forces(s_x = s_x_rear, s_y = s_y_rear, F_z = Fz_tire_rear)
+        # compute the tire forces (use the tire model in self.tire_model to compute the tire forces)
+        Fx_tire_front, Fy_tire_front = 
+        Fx_tire_rear, Fy_tire_rear = 
 
         # compute forces and moment (these are in the vehicle body frame). Equation 4 in document.
-        Fx = Fx_tire_rear + Fx_tire_front * cos(delta_rad) - Fy_tire_front * sin(delta_rad)
-        Fy = Fy_tire_rear + Fx_tire_front * sin(delta_rad) + Fy_tire_front * cos(delta_rad)
-        Mz = self.l_wheelbase_m * (Fx_tire_front * sin(delta_rad) + Fy_tire_front * cos(delta_rad)) - Fy_tire_rear * self.l_wheelbase_m
+        Fx = 
+        Fy = 
+        Mz = 
 
         # rotate from vehicle body frame into ground-fixed frame. Equation 5 in document.
-        Fx_ground = Fx * sin(self.current_state.psi_rad) + Fy * cos(self.current_state.psi_rad)
-        Fy_ground = Fx * cos(self.current_state.psi_rad) - Fy * sin(self.current_state.psi_rad)
+        Fx_ground = 
+        Fy_ground = 
 
         # compute vehicle accelerations. Newton's second law. Equations 3d to 3f.
-        x_ddot_m_per_s2 = Fx_ground / self.mass_kg
-        y_ddot_m_per_s2 = Fy_ground / self.mass_kg
-        psi_ddot_rad_per_s2 = Mz / self.Izz_kg_m2
+        x_ddot_m_per_s2 = 
+        y_ddot_m_per_s2 = 
+        psi_ddot_rad_per_s2 = 
 
         # save control commands for plotting
         self.current_state.delta_rad = delta_rad

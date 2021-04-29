@@ -39,9 +39,9 @@ class LinearTireModel( TireModel ):
             return 0., 0.,
 
         # Equation 7b through d
-        F_t = F_z * self.linear_slope * s
-        F_x = (s_x / s) * F_t
-        F_y = (s_y / s) * F_t
+        F_t = 
+        F_x = 
+        F_y = 
 
         return F_x, F_y
         
